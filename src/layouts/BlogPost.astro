@@ -9,22 +9,21 @@ type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
-// Ensure fallback image and URL generation
 const image = heroImage || '/default-og-image.jpg';
-const url = `https://yourdomain.com${Astro.url.pathname}`; // Replace with your domain
+const url = `https://astro-blog-starter-template.denis-veisllari.workers.dev${Astro.url.pathname}`;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
 
-		<!-- ✅ Social Sharing Metadata -->
+		<!-- ✅ SEO & Social Metadata -->
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={image} />
 		<meta property="og:url" content={url} />
-		<meta property="og:site_name" content="Your Site Name" />
+		<meta property="og:site_name" content="Astro Blog Starter" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
@@ -32,7 +31,6 @@ const url = `https://yourdomain.com${Astro.url.pathname}`; // Replace with your 
 		<meta name="twitter:image" content={image} />
 		<meta name="twitter:site" content="@YourTwitterHandle" />
 
-		<!-- ✅ Optional Structured Data -->
 		<script type="application/ld+json">
 			{JSON.stringify({
 				"@context": "https://schema.org",
@@ -42,7 +40,7 @@ const url = `https://yourdomain.com${Astro.url.pathname}`; // Replace with your 
 				image,
 				author: {
 					"@type": "Person",
-					"name": "Your Name"
+					"name": "Denis Veisllari"
 				},
 				datePublished: pubDate,
 				mainEntityOfPage: {
