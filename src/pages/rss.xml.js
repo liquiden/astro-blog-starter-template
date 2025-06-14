@@ -1,16 +1,11 @@
-import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 
 export async function GET(context) {
-  const posts = await getCollection("blog");
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: 'Web Development and Technology Blog | Fernando López | EFEELE',
+    description: 'Welcome to my blog, where I share my passion for frontend development, web design, and the latest technology trends.',
     site: context.site,
-    items: posts.map((post) => ({
-      ...post.data,
-      link: `/blog/${post.id}/`,
-    })),
+    items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
+    customData: `<language>es</language>`,
   });
 }
