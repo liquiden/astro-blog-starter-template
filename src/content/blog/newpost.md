@@ -5,7 +5,7 @@ pubDate: 2025-06-14
 heroImage: "/blog/astro-hero.jpg"
 author: "Jane Developer"
 tags: ["Astro", "Static Site", "Web Dev"]
-layout: "../../layouts/BlogPost2.astro"
+layout: "/layouts/BlogPost2.astro"
 ---
 
 Astro is redefining how developers build static websites. With its ability to render only what's needed and ship zero JavaScript by default, it's an ideal choice for performance-focused websites like blogs, portfolios, and documentation.
