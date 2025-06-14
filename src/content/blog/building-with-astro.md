@@ -16,6 +16,8 @@ Astro allows you to:
 - Write in a component-based structure
 - Use Markdown and MDX seamlessly
 
+heroImage: ":blog-placeholder-5.jpg"
+
 ## Getting Started
 
 To create a new project:
