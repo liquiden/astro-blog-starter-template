@@ -1,0 +1,34 @@
+---
+const { title, description, pubDate, heroImage, author, tags } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={heroImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body class="bg-white text-gray-900 font-sans">
+    <article class="max-w-3xl mx-auto px-4 py-10">
+      <img src={heroImage} alt={title} class="w-full h-64 object-cover rounded-xl mb-6" />
+      <h1 class="text-4xl font-bold mb-2">{title}</h1>
+      <div class="text-sm text-gray-600 mb-4">
+        {new Date(pubDate).toLocaleDateString()} — {author}
+        {tags && (
+          <span> · {tags.map(tag => `#${tag}`).join(" ")}</span>
+        )}
+      </div>
+      <slot />
+    </article>
+  </body>
+</html>
